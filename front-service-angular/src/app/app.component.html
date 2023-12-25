@@ -1,0 +1,53 @@
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a href="#" class="navbar-brand">Resource<b>Serivce</b></a>
+  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <!-- Collection of nav links, forms, and other content for toggling -->
+  <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+    <div class="navbar-nav">
+      <a href="#" class="nav-item nav-link">Home</a>
+      <a routerLink="resources" class="nav-item nav-link">resources</a>
+      <a routerLink="persones" class="nav-item nav-link">persones</a>
+      <a routerLink="reservation" class="nav-item nav-link">reservation</a>
+
+      <div class="nav-item dropdown">
+        <a routerLink="#" data-toggle="dropdown" class="nav-item nav-link dropdown-toggle">
+          <span> USER </span>
+        </a>
+        <div class="dropdown-menu">
+          <a  class="dropdown-item">Login</a>
+
+          <form method="post">
+            <button class="dropdown-item">LogOut</button>
+          </form>
+          <a routerLink="" class="dropdown-item">Profile</a>
+        </div>
+      </div>
+    </div>
+    <form class="navbar-form form-inline ml-auto">
+      <div class="input-group search-box">
+        <input type="text" class="form-control">
+        <div class="input-group-append">
+          <button type="button" class="btn btn-danger"><span>Search</span></button>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>
+
+
+<router-outlet></router-outlet>
+
+
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
