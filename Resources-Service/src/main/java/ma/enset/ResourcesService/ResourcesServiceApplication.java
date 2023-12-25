@@ -15,7 +15,7 @@ import java.util.Random;
 import java.util.UUID;
 
 @SpringBootApplication
-@EnableDiscoveryClient
+//@EnableDiscoveryClient
 public class ResourcesServiceApplication implements CommandLineRunner {
 	private final ResourceRepository resourceRepository;
 

@@ -5,7 +5,6 @@ import ma.enset.ResourcesService.repository.ResourceRepository;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
-
 @RestController
 @CrossOrigin("*")
 @AllArgsConstructor
@@ -35,6 +34,5 @@ public class ResourceRestController {
     public void deleteResource(@PathVariable("id") long id) {
         resourceRepository.deleteById(id);
     }
-
 
 }
