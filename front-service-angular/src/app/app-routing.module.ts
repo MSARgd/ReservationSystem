@@ -7,10 +7,10 @@ import {PersonesComponent} from "./componentes/persones/persones.component";
 
 const routes: Routes = [
   {path:'',redirectTo:"resources",pathMatch:"full"},
-  {path:"resources",component:ResourceComponent,canActivate:[AuthGuard],data:{roles:['ADMIN']}},
+  // {path:"resources",component:ResourceComponent,canActivate:[AuthGuard],data:{roles:['ADMIN']}},
 
 
-  {path:"persones",component:PersonesComponent,canActivate:[AuthGuard],data:{roles:['ADMIN','USER']}},
+  // {path:"persones",component:PersonesComponent,canActivate:[AuthGuard],data:{roles:['ADMIN','USER']}},
 
 ];
 @NgModule({

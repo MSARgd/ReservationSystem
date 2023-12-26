@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 @EnableDiscoveryClient
 public class GatewayServiceApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayServiceApplication.class, args);
 	}
@@ -18,5 +17,4 @@ public class GatewayServiceApplication {
 	DiscoveryClientRouteDefinitionLocator dynamicRoutes(ReactiveDiscoveryClient rDC, DiscoveryLocatorProperties dLP){
 		return new DiscoveryClientRouteDefinitionLocator(rDC,dLP);
 	}
-
 }

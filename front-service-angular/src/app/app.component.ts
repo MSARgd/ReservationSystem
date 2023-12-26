@@ -19,22 +19,18 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     if (this.keycloakService.isLoggedIn()) {
       this.roles = this.keycloakService.getUserRoles().filter(role => role === "ADMIN" || role === "USER");
-
       this.keycloakService.loadUserProfile().then(profile => {
         this.profile = profile;
         console.log(profile)
       });
     }
   }
-
   async login() {
     await this.keycloakService.login({
       redirectUri: window.location.origin
     });
   }
-
   logout() {
     this.keycloakService.logout(window.location.origin)
   }
 }
-

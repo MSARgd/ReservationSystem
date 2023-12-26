@@ -1,5 +1,4 @@
 package ma.enset.ResourcesService;
-
 import com.github.javafaker.Faker;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -13,14 +12,14 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import java.util.Random;
 import java.util.UUID;
-
 @SpringBootApplication
 @EnableDiscoveryClient
 public class ResourcesServiceApplication implements CommandLineRunner {
-	private final ResourceRepository resourceRepository;
-
+	private  ResourceRepository resourceRepository;
+	private final Faker faker;
 	public ResourcesServiceApplication(ResourceRepository resourceRepository) {
 		this.resourceRepository = resourceRepository;
+		this.faker = new Faker();
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(ResourcesServiceApplication.class, args);
@@ -28,9 +27,10 @@ public class ResourcesServiceApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		for (int i=0;i<10;i++){
-			resourceRepository.save(Resource.builder().name(UUID.randomUUID().toString().substring(1,15))
+			resourceRepository.save(Resource.builder().name(faker.name().firstName())
 					.typeResource(TypeResource.values()[new Random().nextInt(TypeResource.values().length)])
 					.build());
 		}
 	}
 }
+

@@ -9,7 +9,7 @@ export class ResourceComponent {
   resources : any;
 
   constructor(private http:HttpClient) {
-    this.http.get("http://localhost:8084/RESOURCE-SERVICE/resources").subscribe({
+    this.http.get("http://localhost:8081/resource-service/resources").subscribe({
       next:(data)=>{
         this.resources=data;
       },
@@ -23,8 +23,8 @@ export class ResourceComponent {
   }
   deleteResources(r: any) {
     const resourceId = r.id;
-
-    this.http.delete(`http://localhost:8085/RESOURCE-SERVICE/resources/${resourceId}`).subscribe({
+    // http://localhost:8081/resource-service/resources/6
+    this.http.delete(`http://localhost:8081/resource-service/resources/${resourceId}`).subscribe({
       next: () => {
         this.resources = this.resources.filter((resource: any) => resource.id !== resourceId);
       },
