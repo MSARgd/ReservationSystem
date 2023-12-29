@@ -1,10 +1,8 @@
 package ma.enset.Reservationservice.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+import ma.enset.Reservationservice.model.Resource;
 
 import java.util.Date;
 
@@ -17,4 +15,9 @@ public class Reservation {
     private String context;
     private Date date;
     private int duree;
+    @ManyToOne
+    private Person person;
+    private Long resourceId;
+    @Transient
+    private Resource resource;
 }

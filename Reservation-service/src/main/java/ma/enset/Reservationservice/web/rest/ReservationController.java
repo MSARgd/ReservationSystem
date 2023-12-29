@@ -3,8 +3,8 @@ package ma.enset.Reservationservice.web.rest;
 import lombok.AllArgsConstructor;
 import ma.enset.Reservationservice.entity.Reservation;
 import ma.enset.Reservationservice.repository.ReservationRepository;
-import ma.enset.ResourcesService.entity.Resource;
-import ma.enset.ResourcesService.repository.ResourceRepository;
+//import ma.enset.ResourcesService.entity.Resource;
+//import ma.enset.ResourcesService.repository.ResourceRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

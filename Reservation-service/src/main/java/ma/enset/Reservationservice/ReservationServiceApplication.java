@@ -9,12 +9,20 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-@EnableDiscoveryClient
+import org.springframework.cloud.openfeign.EnableFeignClients;
+
 @SpringBootApplication
+@EnableDiscoveryClient
+@EnableFeignClients
 public class ReservationServiceApplication implements CommandLineRunner {
 	private PersonRepository personRepository;
 	private ReservationRepository reservationRepository;
-	private Faker faker;
+	private final Faker faker = new Faker();
+
+	public ReservationServiceApplication(PersonRepository personRepository, ReservationRepository reservationRepository) {
+		this.personRepository = personRepository;
+		this.reservationRepository = reservationRepository;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(ReservationServiceApplication.class, args);

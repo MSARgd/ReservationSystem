@@ -1,8 +1,11 @@
 package ma.enset.Reservationservice.web.rest;
 
 import lombok.AllArgsConstructor;
+import ma.enset.Reservationservice.dto.PersonDto;
 import ma.enset.Reservationservice.entity.Person;
 import ma.enset.Reservationservice.entity.Reservation;
+import ma.enset.Reservationservice.mapper.PersonMapper;
+import ma.enset.Reservationservice.mapper.ReservationMapper;
 import ma.enset.Reservationservice.repository.PersonRepository;
 import ma.enset.Reservationservice.repository.ReservationRepository;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +18,8 @@ import java.util.List;
 @AllArgsConstructor
 public class PersoneController {
     private PersonRepository personRepository;
-
+    private PersonMapper personMapper;
+    private ReservationMapper reservationMapper;
     @GetMapping("/persones")
     public List<Person> findAll() {
         return personRepository.findAll();
@@ -28,7 +32,14 @@ public class PersoneController {
         persones.add(person);
         return persones;
 
+
     }
+
+    public Person addPerson(@RequestBody PersonDto personDto) {
+        Person person = personMapper.dtoToEntityPerson(personDto);
+        return personRepository.save(person);
+    }
+
     @RequestMapping("/persones")
     public Person saveResource(@RequestBody Person person) {
         return personRepository.save(person);

@@ -1,10 +1,10 @@
 package ma.enset.Reservationservice.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Collection;
 
 @Entity
 @Getter @Setter @Builder @NoArgsConstructor @AllArgsConstructor
@@ -14,4 +14,7 @@ public class Person {
     private String name;
     private String email;
     private String fonction;
+    @OneToMany(mappedBy = "person")
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    private Collection<Reservation> reservation;
 }
