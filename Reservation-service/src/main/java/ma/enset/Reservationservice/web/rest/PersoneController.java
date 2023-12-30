@@ -31,15 +31,11 @@ public class PersoneController {
         List<Person> persones  = new ArrayList<>();
         persones.add(person);
         return persones;
-
-
     }
-
     public Person addPerson(@RequestBody PersonDto personDto) {
         Person person = personMapper.dtoToEntityPerson(personDto);
         return personRepository.save(person);
     }
-
     @RequestMapping("/persones")
     public Person saveResource(@RequestBody Person person) {
         return personRepository.save(person);
